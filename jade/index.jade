@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width')
+    title Dave Calc
+    link(href='lib/ionic/css/ionic.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
+    script(src='lib/ionic/js/ionic.bundle.js')
+    script(src='cordova.js')
+    script(src='js/app.js')
+    script(src='js/main_controller.js')
+  body(ng-app='calc' ng-controller='MainCtrl')
+    //header
+    .bar.bar-header.bar-dark
+      h1.title {{title}}
+    ion-content.has-header
+      .display {{display}}
+      .button-bar
+         a.button(ng-click='addToDisplay(7)') 7
+         a.button(ng-click='addToDisplay(8)') 8
+         a.button(ng-click='addToDisplay(9)') 9
+         a.button(ng-click='calculate("+")') +
+      .button-bar
+         a.button(ng-click='addToDisplay(4)') 4
+         a.button(ng-click='addToDisplay(5)') 5
+         a.button(ng-click='addToDisplay(6)') 6
+         a.button(ng-click='calculate("-")') -
+      .button-bar
+         a.button(ng-click='addToDisplay(1)') 1
+         a.button(ng-click='addToDisplay(2)') 2
+         a.button(ng-click='addToDisplay(3)') 3
+         a.button(ng-click='calculate("*")') *
+      .button-bar
+         a.button(ng-click='addToDisplay(0)') 0
+         a.button(ng-click='addToDisplay(".")') .
+         a.button(ng-click='answer()') =
+         a.button(ng-click='calculate("/")') /
+      .button-bar
+        a.button(ng-click='clearDisplay()') Clear
+    //footer
+    .bar.bar-footer.bar-dark
+      .title &copy; 2014 Dave Boling
+
